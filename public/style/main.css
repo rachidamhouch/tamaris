@@ -42,7 +42,7 @@ body{
   transition: margin-left 0.3s ease-in-out;
 }
 .form-outer form .page .title{
-  text-align: left;
+  text-align: right;
   font-size: 25px;
   font-weight: 500;
 }
@@ -56,6 +56,7 @@ body{
 form .page .field .label{
   position: absolute;
   top: -30px;
+  right: 0px;
   font-weight: 500;
 }
 form .page .field input{
