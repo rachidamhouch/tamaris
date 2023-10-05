@@ -42,7 +42,21 @@ router.get("/", async (req, res) => {
   res.render("home.ejs", data);
 });
 
-router.post("/", upload.single("img"), async (req, res) => {
+function checkFileFormat(req, res, next) {
+  const acceptedFileFormats = ['image/jpeg', 'image/png', 'image/gif'];
+
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.');
+  }
+
+  if (!acceptedFileFormats.includes(req.file.mimetype)) {
+    return res.status(400).send(`File format (${req.file.mimetype}) is not allowed.`);
+  }
+
+  // File format is allowed, proceed to the next middleware
+  next();
+}
+router.post("/", upload.single("img"), checkFileFormat,  async (req, res) => {
   const user = new User(req.body);
   let n = 0;
   if (req.file) user.img = req.file.path.replace("public/", "");
