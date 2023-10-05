@@ -11,6 +11,10 @@ const schema = new mongoos.Schema({
     input5: String,
     img: String,
     input6: String,
+    good: {
+        type: Boolean,
+        default: true
+    }
 })
 
 export default new mongoos.model("User", schema)

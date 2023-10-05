@@ -1,132 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="icon" href="https://tamaris.space/wp-content/uploads/2022/05/icon.png" sizes="192x192">
-  </head>
-  <body>
-    <div class="container">
-      <header>TAMARIS</header>
-      <div class="progress-bar">
-        <div class="step">
-          <p></p>
-          <div class="bullet">
-            <span>1</span>
-          </div>
-          <div class="check fas fa-check"></div>
-        </div>
-        <div class="step">
-          <p></p>
-          <div class="bullet">
-            <span>2</span>
-          </div>
-          <div class="check fas fa-check"></div>
-        </div>
-        <div class="step">
-          <p></p>
-          <div class="bullet">
-            <span>3</span>
-          </div>
-          <div class="check fas fa-check"></div>
-        </div>
-        <div class="step">
-          <p></p>
-          <div class="bullet">
-            <span>4</span>
-          </div>
-          <div class="check fas fa-check"></div>
-        </div>
-      </div>
-      <div class="form-outer">
-        <form action="/" method="POST" enctype="multipart/form-data">
-          <div class="page slide-page">
-            <div class="field">
-              <div class="label" >  الاسم و النسب <span style="color: red;"><%= n1 %></span></div>
-              <input type="text" name="name" value="<%= name %> " />
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style/main.css"/>
+        <link rel="icon" href="https://tamaris.space/wp-content/uploads/2022/05/icon.png" sizes="192x192">
+    </head>
+    <body>
+        <div class="container">
+            <header>TAMARIS</header>
+            <div class="progress-bar">
+                <div class="step">
+                    <p></p>
+                    <div class="bullet">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p></p>
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p></p>
+                    <div class="bullet">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p></p>
+                    <div class="bullet">
+                        <span>4</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
             </div>
-            <div class="field">
-              <div class="label">العمر <span style="color: red;"><%= n2 %></span></div>
-              <input type="text" name="age" value="<%= age %>"/>
+            <div class="form-outer">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <div class="page slide-page">
+                        <% if (locals.error){ %> 
+                          <div style="color: red; font-weight: 600;">غلطي فشي حاجة، عاود تأكد من المعلومات ديالك</div>
+                          <% } %> 
+                        <div class="field">
+                            <div class="label">
+                                الاسم و النسب
+                                <span style="color: red;"><%= n1 %></span>
+                            </div>
+                            <input type="text" name="name" value="<%= name %>"/>
+                        </div>
+                        <div class="field">
+                            <div class="label">العمر
+                                <span style="color: red;"><%= n2 %></span>
+                            </div>
+                            <input type="text" name="age" value="<%= age %>"/>
+                        </div>
+                        <div class="field">
+                            <div class="label">رقم الهاتف - الواتساب
+                                <span style="color: red;"><%= n3 %></span>
+                            </div>
+                            <input type="text" name="phone" value="<%= phone %>"/>
+                        </div>
+                        <div class="field">
+                            <button class="firstNext next">Next</button>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="field">
+                            <div class="label">
+                                المدينة التي تقطن بها حاليا
+                                <span style="color: red;"><%= n4 %></span>
+                            </div>
+                            <input type="text" name="input1" value="<%= input1 %>"/>
+                        </div>
+                        <div class="field">
+                            <div class="label">المستوى الدراسي و التخصص
+                                <span style="color: red;"><%= n5 %></span>
+                            </div>
+                            <input type="text" name="input2" value="<%= input2 %>"/>
+                        </div>
+                        <div class="field">
+                            <div class="label">اذا كنت موظف شنو هي المهنة لي كتزاول
+                                <span style="color: red;"><%= n6 %></span>
+                            </div>
+                            <input type="text" name="input3" value="<%= input3 %>"/>
+                        </div>
+                        <div class="field btns">
+                            <button class="prev-1 prev">Previous</button>
+                            <button class="next-1 next">Next</button>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="field">
+                            <div class="label">واش عندك خبرة سابقة فالعمل الجمعوي
+                            </div>
+                            <select name="input4" style="text-align: right;" value="<%= input4 %>">
+                                <option>اه</option>
+                                <option>لا</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="label">واش عندك اي انتماء سياسي او جمعوي حاليا
+                            </div>
+                            <select name="input5" style="text-align: right;" value="<%= input5 %>">
+                                <option>اه</option>
+                                <option>لا</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="label" id="img">
+                                صورتك الشخصية
+                                <span  style="color: red;"><%= n7 %></span>
+                            </div>
+                            <label id="selectedFileName" for="myFile" style="display: inline-block; position: relative; overflow: hidden; width: 100%; height: 40px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 40px; cursor: pointer; font-size: 16px;">
+                                <input value="<%= img %>" type="file" id="myFile" name="img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateFileName(this)">
+                                ☁️ رفع
+                            </label>
+                            <input id="img" value="<%= img %>" type="file" id="myFile" name="img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateFileName(this)">
+                        </div>
+                        <div class="field btns">
+                            <button class="prev-2 prev">Previous</button>
+                            <button class="next-2 next">Next</button>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="field" style="height: 225px;">
+                            <div class="label">تكلم لينا على راسك وعلاش بالضبط تمارس
+                                <span style="color: red;">
+                                    <%= n8 %></div>
+                                <textarea id="w3review" name="input6" rows="1" cols="50" style="display: block;"><%= input6 %></textarea>
+                            </div>
+                            <div class="field btns">
+                                <button class="prev-3 prev">Previous</button>
+                                <button class="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="field">
-              <div class="label">رقم الهاتف - الواتساب <span style="color: red;"><%= n3 %></span></div>
-              <input type="text" name="phone" value="<%= phone %>" />
-            </div>
-            <div class="field">
-              <button class="firstNext next">Next</button>
-            </div>
-          </div>
-          <div class="page">
-            <div class="field">
-              <div class="label"> المدينة التي تقطن بها حاليا <span style="color: red;"><%= n4 %></span></div>
-              <input type="text" name="input1" value="<%= input1 %>" />
-            </div>
-            <div class="field">
-              <div class="label">المستوى الدراسي و التخصص <span style="color: red;"><%= n5 %></span></div>
-              <input type="text" name="input2"value="<%= input2 %>" />
-            </div>
-            <div class="field">
-              <div class="label">اذا كنت موظف شنو هي المهنة لي كتزاول <span style="color: red;"><%= n6 %></span></div>
-              <input type="text" name="input3" value="<%= input3 %>"/>
-            </div>
-            <div class="field btns">
-              <button class="prev-1 prev">Previous</button>
-              <button class="next-1 next">Next</button>
-            </div>
-          </div>
-          <div class="page">
-            <div class="field">
-              <div class="label">واش عندك خبرة سابقة فالعمل الجمعوي </div>
-              <select name="input4" style="text-align: right;" value="<%= input4 %>">
-                <option>اه</option>
-                <option>لا</option>
-              </select>
-            </div>
-            <div class="field">
-              <div class="label">واش عندك اي انتماء سياسي او جمعوي حاليا </div>
-              <select name="input5" style="text-align: right;" value="<%= input5 %>">
-                <option>اه</option>
-                <option>لا</option>
-              </select>
-            </div>
-            <div class="field">
-              <div class="label"> صورتك الشخصية <span style="color: red;"><%= n7 %></span></div>
-              <label id="selectedFileName" for="myFile" style="display: inline-block; position: relative; overflow: hidden; width: 100%; height: 40px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 40px; cursor: pointer; font-size: 16px;">
-                <input value="<%= img %>" type="file" id="myFile" name="img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateFileName(this)">
-                ☁️ رفع
-              </label>
-              <input value="<%= img %>" type="file" id="myFile" name="img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateFileName(this)">
-            </div>
-            <div class="field btns">
-              <button class="prev-2 prev">Previous</button>
-              <button class="next-2 next">Next</button>
-            </div>
-          </div>
-          <div class="page">          
-            <div class="field" style="height: 225px;">
-              <div class="label" >تكلم لينا على راسك وعلاش بالضبط تمارس <span style="color: red;"> <%= n8 %></div>
-              <textarea   id="w3review" name="input6" rows="1" cols="50" style="display: block;"><%= input6 %></textarea>
-            </div>
-            <div class="field btns" >
-              <button class="prev-3 prev">Previous</button>
-              <button class="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <script src="script/script.js"></script>
-    <script>
-      function updateFileName(input) {
-        const selectedFileName = document.getElementById("selectedFileName");
-        if (input.files.length > 0) {value=""
-          selectedFileName.textContent = "تم اختيار الصورة بنجاح";
-          selectedFileName.style.backgroundColor = "aquamarine";
-        } else {
-          selectedFileName.textContent = "";
-        }
-      }
-    </script>
-  </body>
+            <script src="script/script.js"></script>
+            <script>
+                function updateFileName(input) {
+                    const selectedFileName = document.getElementById("selectedFileName");
+                    if (input.files.length > 0) {         
+                      selectedFileName.textContent = "تم اختيار الصورة بنجاح";
+                      selectedFileName.style.backgroundColor = "aquamarine";
+                    }
+                }
+            </script>
+        </body>
+    </body>
 </html>

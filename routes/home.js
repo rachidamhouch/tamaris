@@ -7,7 +7,14 @@ const router = Router();
 // Configure Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/img/"); // Store uploaded images in the "uploads" directory
+    const fileName = file.originalname;
+    const fileExtension = fileName.split(".").pop().toLowerCase();
+    const allowedExtensions = ["jpg", "jpeg", "png"];
+    if (allowedExtensions.includes(fileExtension)) {
+      cb(null, "public/img/");
+    }
+    else
+      cb(null, "temp/");
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname); // Rename files with a unique timestamp
@@ -18,7 +25,7 @@ const upload = multer({ storage });
 
 router.get("/", async (req, res) => {
   const data = {
-    name: "",
+    name:"",
     age: "",
     phone: "",
     input1: "",
@@ -86,13 +93,23 @@ router.post("/", upload.single("img"), async (req, res) => {
     n = 1;
     data.n7 = "حقل مطلوب";
   }
+  else{
+    const fileName = req.file.originalname;
+    const fileExtension = fileName.split(".").pop().toLowerCase();
+    const allowedExtensions = ["jpg", "jpeg", "png"];
+    if (!allowedExtensions.includes(fileExtension)) {
+        n = 1;
+        data.n7 = "صغية غير مقبولة";
+    }
+  }
   if (!user.input6) {
     n = 1;
     data.n8 = "حقل مطلوب";
   }
   if (n) {
-    data.n7 = "حقل مطلوب";
-    return res.render("home.ejs", data);
+    if (data.n7 != "صغية غير مقبولة")
+      data.n7 = "حقل مطلوب";
+    return res.render("home.ejs", {...data, error: "Yes"});
   }
   await user.save();
   res.render("thanks.ejs");
