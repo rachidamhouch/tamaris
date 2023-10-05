@@ -1,4 +1,5 @@
 import { Router } from "express"
+import User from "../models/user.js"
 
 const router = Router()
 
@@ -7,7 +8,8 @@ router.get("/",async (req, res) => {
 })
 
 router.post("/done",async (req, res) => {
-    console.log(req.body)
+    const user = new User(req.body)
+    await user.save()
     res.render("home.ejs")
 })
 export default router
