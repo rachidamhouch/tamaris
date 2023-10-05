@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
-    <!-- <title>Multi Step Form | CodingNepal</title> -->
     <link rel="stylesheet" href="style/main.css" />
+    <link rel="icon" href="https://tamaris.space/wp-content/uploads/2022/05/icon.png" sizes="192x192">
   </head>
   <body>
     <div class="container">
-      <header>Signup Form</header>
+      <header>TAMARIS</header>
       <div class="progress-bar">
         <div class="step">
           <p></p>
@@ -44,15 +42,15 @@
         <form action="/done" method="POST">
           <div class="page slide-page">
             <div class="field">
-              <div class="label" >First Name</div>
+              <div class="label" >الاسم و النسب</div>
               <input type="text" name="fname" />
             </div>
             <div class="field">
-              <div class="label">Last Name</div>
+              <div class="label">العمر</div>
               <input type="text" name="lname" />
             </div>
             <div class="field">
-              <div class="label">Last Name</div>
+              <div class="label">رقم الهاتف - الواتساب </div>
               <input type="text" name="lname" />
             </div>
             <div class="field">
@@ -61,15 +59,15 @@
           </div>
           <div class="page">
             <div class="field">
-              <div class="label">Email Address</div>
+              <div class="label"> المدينة التي تقطن بها حاليا</div>
               <input type="text" name="email" />
             </div>
             <div class="field">
-              <div class="label">Phone Number</div>
+              <div class="label">المستوى الدراسي و التخصص</div>
               <input type="Number" name="phone" />
             </div>
             <div class="field">
-              <div class="label">Last Name</div>
+              <div class="label">اذا كنت موظف شنو هي المهنة لي كتزاول</div>
               <input type="text" name="lname" />
             </div>
             <div class="field btns">
@@ -79,20 +77,25 @@
           </div>
           <div class="page">
             <div class="field">
-              <div class="label">Date</div>
-              <input type="text" name="birth" />
-            </div>
-            <div class="field">
-              <div class="label">Last Name</div>
-              <input type="text" name="lname" />
-            </div>
-            <div class="field">
-              <div class="label">Gender</div>
+              <div class="label">واش عندك خبرة سابقة فالعمل الجمعوي</div>
               <select name="gender" style="text-align: right;">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                <option>اه</option>
+                <option>لا</option>
               </select>
+            </div>
+            <div class="field">
+              <div class="label">واش عندك اي انتماء سياسي او جمعوي حاليا</div>
+              <select name="gender" style="text-align: right;">
+                <option>اه</option>
+                <option>لا</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="label"> صورتك الشخصية</div>
+              <label id="selectedFileName" for="myFile" style="display: inline-block; position: relative; overflow: hidden; width: 100%; height: 40px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 40px; cursor: pointer; font-size: 16px;">
+                <input type="file" id="myFile" name="filename" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateFileName(this)">
+                ☁️ رفع
+              </label>
             </div>
             <div class="field btns">
               <button class="prev-2 prev">Previous</button>
@@ -101,7 +104,7 @@
           </div>
           <div class="page">          
             <div class="field" style="height: 225px;">
-              <div class="label">Password</div>
+              <div class="label">ممكن تزيد تكلم لينا على راسك وعلاش بالضبط تمارس؟</div>
               <textarea id="w3review" name="w3review" rows="1" cols="50" style="display: block;"></textarea>
             </div>
             <div class="field btns" >
@@ -113,5 +116,16 @@
       </div>
     </div>
     <script src="script/script.js"></script>
+    <script>
+      function updateFileName(input) {
+        const selectedFileName = document.getElementById("selectedFileName");
+        if (input.files.length > 0) {
+          selectedFileName.textContent = "تم اختيار الصورة بنجاح";
+          selectedFileName.style.backgroundColor = "aquamarine";
+        } else {
+          selectedFileName.textContent = "";
+        }
+      }
+    </script>
   </body>
 </html>

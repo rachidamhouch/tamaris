@@ -56,8 +56,8 @@ body{
 form .page .field .label{
   position: absolute;
   top: -30px;
-  right: 0px;
-  font-weight: 500;
+  right: 5px;
+  font-weight: 555;
 }
 form .page .field input{
   height: 100%;
