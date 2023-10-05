@@ -68,7 +68,7 @@ router.post("/", upload.single("img"), async (req, res) => {
   if (!user.name) {
     n = 1;
     data.n1 = "حقل مطلوب";
-  }
+   }
   if (!user.age) {
     n = 1;
     data.n2 = "حقل مطلوب";

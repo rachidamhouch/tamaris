@@ -1,4 +1,6 @@
 import mongoos from "mongoose"
+import findOrCreate from "mongoose-findorcreate"
+
 
 const schema = new mongoos.Schema({
     name: String,
@@ -11,10 +13,13 @@ const schema = new mongoos.Schema({
     input5: String,
     img: String,
     input6: String,
-    good: {
-        type: Boolean,
-        default: true
+    googleId: String,
+    admin: {
+        type: String,
+        default: false
     }
+
 })
 
+schema.plugin(findOrCreate);
 export default new mongoos.model("User", schema)
