@@ -36,12 +36,12 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .btn{
+      .btn-primary{
         background-color: #b54eba;
         border-color: #610675;
         font-weight: 700;
       }
-      .btn:hover{
+      .btn-primary:hover{
         background-color: #9f25a5;
         border-color: #d6b3de;
       }
@@ -64,6 +64,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= user.name %> </h5>
                   <a  target="_blank" href="/info?id=<%= user._id %> " class="btn btn-primary">اعرف المزيد</a>
+                  <a  style="background-color: rgb(232, 42, 42);" href="/delete?id=<%= user._id %> " class="btn btn-primary">حذف </a>
                 </div>
             </div>
         <% } %>  

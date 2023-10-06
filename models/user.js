@@ -14,6 +14,10 @@ const schema = new mongoos.Schema({
     img: String,
     input6: String,
     googleId: String,
+    deleted:{
+        type: Boolean,
+        default: null
+    },
     admin: {
         type: String,
         default: false
