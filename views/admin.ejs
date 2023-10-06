@@ -52,6 +52,7 @@
         color: #770092;
       }
     </style>
+    <link rel="icon" href="https://tamaris.space/wp-content/uploads/2022/05/icon.png" sizes="192x192">
     <title>Admin Page</title>
   </head>
   <body>
@@ -62,7 +63,7 @@
                 <img src="<%= user.img %> " class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title"><%= user.name %> </h5>
-                  <a href="/info?id=<%= user._id %> " class="btn btn-primary">اعرف المزيد</a>
+                  <a  target="_blank" href="/info?id=<%= user._id %> " class="btn btn-primary">اعرف المزيد</a>
                 </div>
             </div>
         <% } %>  
