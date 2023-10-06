@@ -6,6 +6,7 @@ import errorRouter from "./routes/404.js";
 import homeRouter from "./routes/home.js";
 import adminRouter from "./routes/admin.js";
 import loginRouter from "./routes/login.js";
+import infoRouter from "./routes/info.js";
 import session from "express-session";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
@@ -57,6 +58,7 @@ function(accessToken, refreshToken, profile, cb) {
 app.use("/", homeRouter);
 app.use("/", loginRouter);
 app.use("/", adminRouter);
+app.use("/", infoRouter);
 
 
 app.use("/", errorRouter);
